@@ -8,7 +8,7 @@ CELLS = [
     (0,3),(1,3),(2,3),(3,3),(4,3),
     (0,4),(1,4),(2,4),(3,4),(4,4),
   ]
-start_list = sample(CELLS, 7)
+
 
 cells = {(0, 0): {'disp': '[   ]'}, (1, 0): {'disp': '[   ]'}, (2, 0): {'disp': '[   ]'},
  (3, 0): {'disp': '[   ]'}, (4, 0): {'disp': '[   ]'}, (0, 1): {'disp': '[   ]'}, (1, 1): {'disp': '[   ]'},
@@ -27,6 +27,7 @@ class Token:
         self.disp = '[   ]'
 
     def create_tok(self):
+        start_list = sample(CELLS, 7)
         self.pos = start_list.pop()
     
     def reset_tok(self):
@@ -259,6 +260,7 @@ class Game:
             if flag == 'q':
                 break
             else:
+                clear()
                 self.create_toks()
                 self.drawMap()
                 while player.pos != monster.pos and player.win == False:
